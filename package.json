@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:docker": "docker rm intro; docker rmi nextjs-intro; docker build -t nextjs-intro .",
+    "start:docker": "docker run -d --name intro -p 3000:3000 nextjs-intro",
     "start": "next start",
+    "stop:docker": "docker stop intro",
     "lint": "next lint"
   },
   "dependencies": {
