@@ -51,7 +51,7 @@ const Home: NextPage<Props> = (props) => {
   };
 
   return (
-    <main>
+    <section>
       <ul>
         <li>
           <Link href="/post/abc">Go to pages/post/[pid].js</Link>
@@ -70,7 +70,7 @@ const Home: NextPage<Props> = (props) => {
       <button type="button" onClick={onUser}>
         User
       </button>
-    </main>
+    </section>
   );
 };
 
