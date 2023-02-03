@@ -1,17 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
+import { removeTokenCookie } from "@/lib/passport/auth-cookie";
 type ResponseData = {
   name: string;
 };
 
-export default function handle(
+export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
 ) {
-  res.setHeader(
-    "Set-Cookie",
-    `token=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; Path=/; Secure; HttpOnly;`
-  );
-
+  await removeTokenCookie(res);
   return res.status(200).json({ name: `${req.method}` });
 }
